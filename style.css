@@ -1,0 +1,135 @@
+/* ========================= */
+/*       GLOBAL STYLES       */
+/* ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Neon Colors */
+:root {
+    --neon-pink: #ff2fd4;
+    --neon-blue: #2fd8ff;
+    --neon-purple: #b12fff;
+}
+
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
+
+.site-header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 1rem;
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.nav a:hover {
+    color: var(--neon-pink);
+}
+
+/* ========================= */
+/*         PANELS            */
+/* ========================= */
+
+.panel {
+    padding: 100px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.full-screen {
+    height: 100vh;
+}
+
+.neon-text {
+    color: var(--neon-pink);
+    text-shadow: 0 0 12px var(--neon-pink), 0 0 24px var(--neon-pink);
+}
+
+.neon-subtext {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    margin-top: 10px;
+}
+
+/* ========================= */
+/*       STORY PANELS        */
+/* ========================= */
+
+.story-panel {
+    border-left: 4px solid var(--neon-purple);
+    padding-left: 20px;
+    margin: 80px 0;
+}
+
+.panel-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.panel-text {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ========================= */
+/*         CREDITS           */
+/* ========================= */
+
+.credits-list {
+    margin-top: 20px;
+    list-style: none;
+}
+
+.credits-list li {
+    margin: 8px 0;
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
