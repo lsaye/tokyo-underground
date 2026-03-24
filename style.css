@@ -1,5 +1,11 @@
-
-* {
+@font-face {
+  font-family: 'Notable';
+  src: url('fonts/Notable-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +14,8 @@
 body {
     background-color: #000;
     color: #fff;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Notable', sans-serif;
+    letter-spacing: 0.15em;
     overflow-x: hidden;
 }
 
