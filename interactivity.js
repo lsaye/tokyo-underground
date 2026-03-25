@@ -17,6 +17,6 @@
         // After 1.4s, show frame 3 (full UI)
         setTimeout(function () {
             frame3.classList.add('active');
-        }, 2800);
+        }, 2200);
     });
 })();
