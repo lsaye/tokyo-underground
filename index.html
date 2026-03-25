@@ -19,11 +19,16 @@
         </nav>
     </header>
 
-    <section id="intro" class="panel full-screen">
-        <div class="intro-content">
-            <h2 class="neon-text">Enter the Underground</h2>
-            <p class="neon-subtext">Scroll to begin</p>
-        </div>
+    <section id="intro" class="panel full-screen car-intro-panel">
+    <div class="car-stage">
+        <img src="images/frame1.png" class="car-frame" id="frame1" alt="Dashboard off" />
+        <img src="images/frame2.png" class="car-frame" id="frame2" alt="Dashboard booting" />
+        <img src="images/frame3.png" class="car-frame" id="frame3" alt="Dashboard on" />
+        <button class="push-to-start-btn" id="pushToStart" aria-label="Push to Start"></button>
+    </div>
+    <div class="intro-prompt" id="introPrompt">
+        <p class="neon-subtext pulse-text">PUSH TO START</p>
+    </div>
     </section>
 
     <main id="story">
@@ -57,9 +62,7 @@
         <p>© 2024 TOKYO UNDERGROUND</p>
     </footer>
     
-    <script src="js/main.js"></script>
-    <script src="js/scrollEffects.js"></script>
-    <script src="js/story.js"></script>
+    <script src="interactivity.js"></script>
 
 </body>
 </html>
