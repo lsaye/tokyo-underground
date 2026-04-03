@@ -38,9 +38,21 @@ body {
 }
 
 .logo {
-    font-size: 1.8rem;
-    color: var(--neon-pink);
-    text-shadow: 0 0 10px var(--neon-pink);
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 200px;        /* adjust to taste */
+    width: auto;
+    animation: logo-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 80, 0, 0.6));
+}
+
+@keyframes logo-float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
 .nav ul {
@@ -58,6 +70,26 @@ body {
 
 .nav a:hover {
     color: var(--neon-pink);
+}
+
+.intro-landing {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: bottom;
+    justify-content: bottom;
+    gap: 5px;
+    text-align: center;
+    padding: 200px;
+    background: #000;
+}
+
+.intro-scroll-cue {
+    margin-top: 40px;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
 }
 
 .panel {
@@ -117,7 +149,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     overflow: hidden;
     padding: 0;
 }
@@ -134,11 +166,14 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: bottom center;
     opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
     user-select: none;
+    mask-image: radial-gradient(ellipse 75% 78% at 50% 55%, black 40%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 78% at 50% 55%, black 40%, transparent 78%);
 }
 
 #frame1 { opacity: 1; }
@@ -196,6 +231,55 @@ body {
     animation: text-pulse 1.8s ease-in-out infinite;
     font-size: 1rem;
     letter-spacing: 0.3em;
+}
+
+.scroll-cue {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 20;
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    pointer-events: none;
+}
+
+.scroll-cue.visible {
+    opacity: 1;
+}
+
+.subway-panel {
+    position: relative;
+    padding: 60px 40px;
+    margin: 80px 0;
+    border: none;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.subway-frame {
+    position: absolute;
+    width: auto;
+    height: 80vh;
+    max-width: 90%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 3s ease;
+    border-radius: 20px;
+    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
+}
+
+.subway-panel {
+    height: 85vh;
 }
 
 .site-footer {
