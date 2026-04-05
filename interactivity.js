@@ -13,10 +13,13 @@
 
         // Show frame 2 (NISSAN boot screen)
         frame2.classList.add('active');
+        document.getElementById('sunsetBg').classList.add('active');
 
         // After 1.4s, show frame 3 (full UI)
         setTimeout(function () {
             frame3.classList.add('active');
+            // immediate: add lit background to body so background swaps right away
+            if (document.body) document.body.classList.add('lit-bg');
             const scrollCue = document.getElementById('scrollCue');
         if (scrollCue) scrollCue.classList.add('visible');
         }, 2200);
@@ -36,6 +39,9 @@
     const observer = new MutationObserver(function () {
         if (frame3.classList.contains('active')) {
             observer.disconnect();
+
+            // Add lit background when final frame is active
+            document.body && document.body.classList.add('lit-bg');
 
             // Wait for dashboard animation to settle, then fade in subway1
             setTimeout(function () {

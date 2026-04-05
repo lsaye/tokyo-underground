@@ -19,6 +19,23 @@ body {
     overflow-x: hidden;
 }
 
+body.lit-bg {
+    background: transparent;
+    background: url('images/litupbg.png') center / cover no-repeat fixed;
+    background-color: #000; 
+    transition: background 0.4s ease;
+}
+
+body.lit-bg .car-intro-panel,
+body.lit-bg .intro-landing {
+    background: transparent !important;
+}
+
+body.lit-bg .subway-panel,
+body.lit-bg .panel {
+    background: rgba(0,0,0,0.35);
+}
+
 :root {
     --neon-pink: #ff2fd4;
     --neon-blue: #2fd8ff;
@@ -73,7 +90,8 @@ body {
 }
 
 .intro-landing {
-    height: 75vh;
+    height: auto;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: bottom;
@@ -90,6 +108,23 @@ body {
     letter-spacing: 0.4em;
     color: var(--neon-pink);
     text-shadow: 0 0 8px var(--neon-pink);
+}
+
+.sunset-bg {
+    position: absolute;
+    inset: 0;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 0;
+    top: -35%;
+    left: 10%;
+}
+
+.sunset-bg.active {
+    opacity: 1;
 }
 
 .panel {
@@ -174,6 +209,7 @@ body {
     user-select: none;
     mask-image: radial-gradient(ellipse 75% 78% at 50% 55%, black 40%, transparent 78%);
     -webkit-mask-image: radial-gradient(ellipse 75% 78% at 50% 55%, black 40%, transparent 78%);
+    z-index: 1;
 }
 
 #frame1 { opacity: 1; }
