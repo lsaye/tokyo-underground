@@ -1,10 +1,12 @@
     const ambience = new Audio('sound_effects/backgroundambience.mp3');
     ambience.loop = true;
-    ambience.volume = 0.4;
+    ambience.volume = 1;
     const ch12audio = new Audio('sound_effects/ch1.2audio.mp3');
     const ch14audio = new Audio('sound_effects/ch1.4audio.mp3');
+    const driftSound = new Audio('sound_effects/driftsound1.mp3');
     ch12audio.preload = 'auto';
     ch14audio.preload = 'auto';
+    driftSound.preload = 'auto';
 
     (function () {
     const btn    = document.getElementById('pushToStart');
@@ -22,6 +24,17 @@
         ambience.play();
         ch12audio.load();
         ch14audio.load();
+        driftSound.load();
+        [ch12audio, ch14audio, driftSound].forEach(function(a) {
+            a.muted = true;
+            a.play().then(function() {
+            a.pause();
+        a.currentTime = 0;
+        a.muted = false;
+        }).catch(function() {
+        a.muted = false;
+        });
+        });
         btn.classList.add('done');
         prompt.classList.add('hidden');
 
@@ -124,6 +137,7 @@
             const ch14audio = new Audio('sound_effects/ch1.4audio.mp3');
             ch14audio.play();
         }
+        document.getElementById('postStoryScroll').style.opacity = '1';
     });
 
     document.addEventListener('mouseup', function () {
@@ -153,6 +167,7 @@
             ch1_4.style.opacity = '1';
             const ch14audio = new Audio('sound_effects/ch1.4audio.mp3');
             ch14audio.play();
+            document.getElementById('postStoryScroll').style.opacity = '1';
         }
     });
 
@@ -160,6 +175,40 @@
         if (dragging) {
             dragging = false;
             handle.style.transform = 'translateX(0)';
+        }
+    });
+})();
+
+(function () {
+    const ch2_1 = document.getElementById('ch2_1');
+    const ch2_2 = document.getElementById('ch2_2');
+
+    if (!ch2_1 || !ch2_2) return;
+
+    let triggered = false;
+
+    window.addEventListener('scroll', function onScroll() {
+        if (triggered) return;
+        const scene = document.getElementById('ch2Scene');
+        const rect = scene.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7) {
+            triggered = true;
+            window.removeEventListener('scroll', onScroll);
+            setTimeout(function () {
+                ch2_1.style.opacity = '1';
+                setTimeout(function () {
+                    ch2_2.style.opacity = '1';
+                    setTimeout(function () {
+                        const car = document.getElementById('animatedCar');
+                        car.style.opacity = '1';
+                        void car.offsetWidth;
+                        car.classList.add('drive-in');
+                        driftSound.currentTime = 0;
+                        console.log('drift readyState:', driftSound.readyState, 'paused:', driftSound.paused, 'src:', driftSound.src);
+                        driftSound.play().catch(function(e){ console.log('drift error:', e); });
+                    }, 4000);
+                }, 4000);
+            }, 300);
         }
     });
 })();
