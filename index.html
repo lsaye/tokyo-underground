@@ -31,10 +31,10 @@
         <p class="intro-step">INSTRUCTIONS</p>
         <p class="intro-step">① PUSH TO START to boot the dashboard</p>
         <p class="intro-step">② SCROLL to move through the story</p>
-        <p class="intro-step">③ KEEP YOUR EYES OPEN — things happen fast</p>
+        <p class="intro-step">③ KEEP YOUR EYES OPEN... things happen fast</p>
     </div>
     <p class="intro-scroll-cue pulse-text">SCROLL DOWN TO BEGIN</p>
-</section>  
+    </section>  
 
     <section id="intro" class="panel full-screen car-intro-panel">
     <div class="car-stage">
@@ -56,8 +56,18 @@
     <main id="story">
 
     <section class="story-panel subway-panel" id="subwayScene" data-node="1">
-        <img src="images/subwayscene2.png" class="subway-frame" id="subway1" alt="Subway scene" />
-        <img src="images/subwayscene1.png" class="subway-frame" id="subway2" alt="Subway scene with thought bubble" />
+    <div class="subway-left">
+        <img src="images/ch1.1.png" class="subway-frame" id="subway1" alt="Subway scene" />
+        <img src="images/ch1.2.png" class="subway-frame" id="subway2" alt="Subway scene with thought bubble" />
+    </div>
+    <div class="phone-panel" id="phonePanel">
+        <img src="images/ch1.3.png" class="phone-frame" id="ch1_3" alt="Phone call" />
+        <img src="images/ch1.4.png" class="phone-frame" id="ch1_4" alt="Answer the phone" />
+        <div class="answer-prompt" id="answerPrompt">
+            <p style="font-size:0.65rem; letter-spacing:0.25em; color:var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink);">ANSWER THE PHONE</p>
+            <div class="drag-handle" id="dragHandle">&#9654;</div>
+        </div>
+    </div>
     </section>
 
     <section class="story-panel" data-node="2">
@@ -72,9 +82,9 @@
     <section id="credits" class="panel">
         <h2 class="neon-text">Credits</h2>
         <ul class="credits-list">
-            <li>Lucas Sayeau — Code & Interactivity</li>
-            <li>Cole Champion — Design</li>
-            <li>Carlos Valdez — Art & Visuals</li>
+            <li>Lucas Sayeau: Code & Interactivity</li>
+            <li>Cole Champion: Design</li>
+            <li>Carlos Valdez: Art & Visuals</li>
         </ul>
     </section>
 
