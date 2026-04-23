@@ -52,7 +52,6 @@
     <div class="scroll-cue" id="scrollCue">
     <p class="pulse-text">SCROLL DOWN</p>
     </div>
-    
     </section>
 
     <main id="story">
@@ -74,6 +73,7 @@
         <p class="pulse-text">SCROLL DOWN</p>
     </div>
     </section>
+
     <section class="story-panel ch2-panel" id="ch2Scene">
     <div class="ch2-left">
         <img src="images/ch2.1.png" class="ch2-frame" id="ch2_1" alt="Chapter 2 panel 1" />
@@ -82,13 +82,89 @@
         <img src="images/ch2.2.png" class="ch2-frame" id="ch2_2" alt="Chapter 2 panel 2" />
         <img src="images/animatedcar.png" id="animatedCar" class="animated-car" alt="Skyline" />
     </div>
+    <div class="post-story-scroll" id="postCh2Scroll">
+        <p class="pulse-text">SCROLL DOWN</p>
+    </div>
     </section>
 
-    <section class="story-panel" data-node="2">
-        <div class="panel-content">
-            <h3 class="panel-title neon-text">Next Panel</h3>
-            <p class="panel-text">COMING SOON.</p>
+    <section class="story-panel ch2b-panel" id="ch2bScene">
+    <div class="ch2b-row">
+        <img src="images/ch2.3.png" class="ch2b-frame" id="ch2_3" alt="Window rolls down, tattooed woman" />
+        <img src="images/ch2.4.png" class="ch2b-frame" id="ch2_4" alt="They race, she wins, they kiss" />
+        <img src="images/ch2.5.png" class="ch2b-frame" id="ch2_5" alt="Chapter 2 panel 5" />
+    </div>
+    <div class="post-story-scroll" id="postCh2bScroll">
+        <p class="pulse-text">SCROLL DOWN</p>
+    </div>
+    </section>
+
+    <section class="chapter-transition" id="chTransition">
+        <p class="chapter-transition-text" id="chTransitionText">NEXT MORNING, THE RACE BEGINS...</p>
+    </section>
+
+    <section class="story-panel ch3-panel" id="ch3Scene">
+
+      <div class="ch3-row" id="ch3Row1">
+        <img src="images/ch3.1.png" class="ch3-frame" id="ch3_1" alt="Jiraiya wakes up, sees his car" />
+        <img src="images/ch3.2.png" class="ch3-frame" id="ch3_2" alt="McDonald's car lineup" />
+      </div>
+      <div class="post-story-scroll" id="postCh3Row1Scroll">
+        <p class="pulse-text">SCROLL DOWN</p>
+      </div>
+
+      <div class="race-countdown" id="raceCountdown">
+        <p class="countdown-label neon-text" id="countdownNum"></p>
+      </div>
+
+      <div class="ch3-row" id="ch3Row2">
+        <img src="images/ch3.3.png" class="ch3-frame" id="ch3_3" alt="Race — Jiraiya scared, cars racing" />
+        <img src="images/ch3.4.png" class="ch3-frame" id="ch3_4" alt="Police appear behind him" />
+      </div>
+      <div class="post-story-scroll" id="postCh3Row2Scroll">
+        <p class="pulse-text">SCROLL DOWN</p>
+      </div>
+
+      <div class="shift-prompt" id="shiftPrompt">
+        <p style="font-size:0.65rem; letter-spacing:0.25em; color:var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue);">TAP TO SHIFT GEAR</p>
+        <button class="shift-btn" id="shiftBtn">&#9650;</button>
+        <p class="shift-counter" id="shiftCounter">0 / 3</p>
+      </div>
+
+    </section>
+
+    <section class="story-panel ch4-panel" id="ch4Scene">
+
+      <div class="swerve-prompt" id="swervePrompt">
+        <p class="swerve-title" id="swerveTitle">EVADE THE POLICE</p>
+        <p class="swerve-instructions" id="swerveInstructions">↑ ↓ ARROW KEYS &nbsp;|&nbsp; SWIPE UP / DOWN</p>
+        <p class="swerve-goal" id="swerveGoal">EVADES: 0 / 5</p>
+        <div class="swerve-road" id="swerveRoad">
+          <div class="swerve-divider" style="top: 33.3%"></div>
+          <div class="swerve-divider" style="top: 66.6%"></div>
+          <div class="swerve-obstacle" id="swerveObs">🚔</div>
+          <div class="swerve-player" id="swerveCar">🚗</div>
         </div>
+        <p class="swerve-lives" id="swerveLives">❤️❤️❤️</p>
+        <p class="swerve-hint pulse-text" id="swerveHint">MOVE OUT OF THE POLICE CAR'S LANE</p>
+      </div>
+
+      <div class="tunnel-flash" id="tunnelFlash"></div>
+
+      <div class="ch4-row" id="ch4ImagesRow1">
+        <img src="images/ch4.1.png" class="ch4-frame" id="ch4_1" alt="Saves girl from police" />
+        <img src="images/ch4.2.png" class="ch4-frame" id="ch4_2" alt="Secret tunnels" />
+      </div>
+      <div class="post-story-scroll" id="postCh4Row1Scroll">
+        <p class="pulse-text">SCROLL DOWN</p>
+      </div>
+      <div class="ch4-row" id="ch4ImagesRow2">
+        <img src="images/ch4.3.png" class="ch4-frame" id="ch4_3" alt="6AM sunrise, gets paid" />
+      </div>
+
+    </section>
+
+    <section class="the-end-section">
+        <p class="the-end-text">    Jiraiya, now rich, lives happily ever after with his mother and new girlfriend.</p>
     </section>
 
     </main>
@@ -106,7 +182,7 @@
         <p>© 2026 TOKYO UNDERGROUND</p>
     </footer>
     
-    <script src="interactivity.js"></script>
+    <script src="animations.js"></script>
 
 </body>
 </html>
