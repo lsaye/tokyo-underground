@@ -428,7 +428,7 @@
   let triggered      = false;
   let obsAnimFrame   = null;
   let obsStartTime   = null;
-  const OBS_DURATION = 1800;
+  const OBS_DURATION = 900;
 
   function setPlayerLane(lane) {
     playerLane = Math.max(0, Math.min(2, lane));
@@ -501,12 +501,18 @@
           sirenSound.pause();
           flashScreen();
           setTimeout(() => { flashScreen(); }, 200);
-          setTimeout(() => { window.location.reload(); }, 1500);
+          setTimeout(() => { 
+            if (history.scrollRestoration) {
+              history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+            window.location.reload();
+          }, 1500);
           return;
         }
 
         hintEl.textContent = 'TOO SLOW!';
-        setTimeout(() => { if (!swerveComplete) launchObstacle(); }, 1000);
+        setTimeout(() => { if (!swerveComplete) launchObstacle(); }, 200);
         return;
       }
 
