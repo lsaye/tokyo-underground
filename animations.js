@@ -1,4 +1,4 @@
-    const ambience      = new Audio('sound_effects/backgroundambience.mp3');
+const ambience      = new Audio('sound_effects/backgroundambience.mp3');
     ambience.loop = true;
     ambience.volume = 1;
     const ch12audio     = new Audio('sound_effects/ch1.2audio.mp3');
@@ -11,6 +11,7 @@
     const shiftSound    = new Audio('sound_effects/gearshift.mp3');
     const ch23audio     = new Audio('sound_effects/ch2.3audio.mp3');
     const ch24audio     = new Audio('sound_effects/ch2.4audio.mp3');
+    const ch245audio    = new Audio('sound_effects/ch2.45audio.mp3');
     const ch34audio     = new Audio('sound_effects/ch3.4audio.mp3');
     const ch41audio     = new Audio('sound_effects/ch4.1audio.mp3');
     const ch42audio     = new Audio('sound_effects/ch4.2audio.mp3');
@@ -31,6 +32,7 @@
     shiftSound.preload  = 'auto';
     ch23audio.preload   = 'auto';
     ch24audio.preload   = 'auto';
+    ch245audio.preload  = 'auto';
     ch34audio.preload   = 'auto';
     ch41audio.preload   = 'auto';
     ch42audio.preload   = 'auto';
@@ -53,7 +55,7 @@
         ambience.play();
 
         [ch12audio, ch14audio, driftSound, engineRev, crowdSound, sirenSound, tyreScreech, shiftSound,
-         ch23audio, ch24audio, ch34audio, ch41audio, ch42audio, ch43audio, chaseAudio].forEach(function(a) {
+         ch23audio, ch24audio, ch245audio, ch34audio, ch41audio, ch42audio, ch43audio, chaseAudio].forEach(function(a) {
             a.load();
             a.muted = true;
             a.play().then(function() {
@@ -232,12 +234,14 @@
     });
 })();
 
+/* ── CHAPTER 2B panels 3, 4, 4.5 & 5 ── */
 (function () {
-    const ch2_3 = document.getElementById('ch2_3');
-    const ch2_4 = document.getElementById('ch2_4');
-    const ch2_5 = document.getElementById('ch2_5');
+    const ch2_3  = document.getElementById('ch2_3');
+    const ch2_4  = document.getElementById('ch2_4');
+    const ch2_45 = document.getElementById('ch2_45');
+    const ch2_5  = document.getElementById('ch2_5');
 
-    if (!ch2_3 || !ch2_4 || !ch2_5) return;
+    if (!ch2_3 || !ch2_4 || !ch2_45 || !ch2_5) return;
 
     let triggered = false;
 
@@ -249,24 +253,34 @@
             triggered = true;
             window.removeEventListener('scroll', onScroll);
 
+            // Panel 3 — 0.5s
             setTimeout(function () {
                 ch2_3.style.opacity = '1';
                 ch23audio.currentTime = 0;
                 ch23audio.play().catch(() => {});
             }, 500);
 
+            // Panel 4 — 7s
             setTimeout(function () {
                 ch2_4.style.opacity = '1';
                 ch24audio.currentTime = 0;
                 ch24audio.play().catch(() => {});
             }, 7000);
 
+            // Panel 4.5 — 13s
+            setTimeout(function () {
+                ch2_45.style.opacity = '1';
+                ch245audio.currentTime = 0;
+                ch245audio.play().catch(() => {});
+            }, 13000);
+
+            // Panel 5 — 19s, scroll prompt 6s after that
             setTimeout(function () {
                 ch2_5.style.opacity = '1';
                 setTimeout(function () {
                     document.getElementById('postCh2bScroll').style.opacity = '1';
                 }, 6000);
-            }, 13000);
+            }, 19000);
         }
     });
 })();
@@ -501,7 +515,7 @@
           sirenSound.pause();
           flashScreen();
           setTimeout(() => { flashScreen(); }, 200);
-          setTimeout(() => { 
+          setTimeout(() => {
             if (history.scrollRestoration) {
               history.scrollRestoration = 'manual';
             }
